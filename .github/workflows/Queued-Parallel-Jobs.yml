@@ -1,4 +1,4 @@
-name: Generate ASCII ArtWork
+name: Queued-Parallel-Jobs
 on: push
 jobs:
     Build-Job-1:
