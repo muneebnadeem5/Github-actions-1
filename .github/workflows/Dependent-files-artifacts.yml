@@ -1,0 +1,47 @@
+name: Generate ASCII ArtWork
+on: push
+jobs:
+    Build-Job-1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4.1.1
+
+        - name: Install cowsay lib
+          run: sudo apt-get install cowsay -y
+        
+        - name: Execute Cowsay command
+          run: cowsay -f dragon "Run for cover, I am DRAGON ...RAWR" >> dragon.txt
+
+        - name: Upload file
+          uses: actions/upload-artifact@v4.0.0
+          with:
+            name: dragon-file
+            path: dragon.txt
+
+    Test-Job-2:
+        needs: Build-Job-1
+        runs-on: ubuntu-latest
+        steps:
+        - name: Download file
+          uses: actions/download-artifact@v4.1.0
+          with:
+            name: dragon-file
+
+        - name: Test File Exists
+          run: grep -i "dragon" dragon.txt
+  
+    Deploy-Job-3:
+        needs: [Build-Job-1, Test-Job-2]
+        runs-on: ubuntu-latest
+        steps:
+        - name: Download file
+          uses: actions/download-artifact@v4.1.0
+          with:
+            name: dragon-file
+
+        - name: Read File
+          run: cat dragon.txt
+        
+        - name: Check Repo files
+          run: ls -ltra
