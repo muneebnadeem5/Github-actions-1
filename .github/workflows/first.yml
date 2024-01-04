@@ -1,0 +1,14 @@
+name: My-Frist-Workflow
+on: push
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Welcome Message
+          run: echo "My First Github action job"
+
+        - name: List Files
+          run: ls -lrth
+
+        - name: Read the File
+          run: cat README.md
