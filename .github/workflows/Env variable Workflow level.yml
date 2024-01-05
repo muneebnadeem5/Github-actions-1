@@ -1,17 +1,17 @@
 name: Variables Workflow Level
 on: 
-  workflow_dispatch:
+    workflow_dispatch:
 env: 
-  CONTAINER_REGISTRY: docker.io
-  DOCKER_USERNAME: muneeb99
-  IMAGE_NAME: nginx-github-action
+    CONTAINER_REGISTRY: docker.io
+    DOCKER_USERNAME: muneeb99
+    IMAGE_NAME: nginx-github-action
 jobs:
     Docker:
         runs-on: ubuntu-latest
         ######## Environment Variables at Workflow level ########
         steps:
         - name: Docker Build
-          run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/DOCKER_USERNAME/IMAGE_NAME:latest
+          run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
         - name: Docker login
           env:
@@ -19,11 +19,11 @@ jobs:
           run: echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
           
         - name: Docker Publish
-          run: echo docker push $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+          run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
     Deploy:
         needs: Docker
         runs-on: ubuntu-latest
         steps:
         - name: Docker Run
-          run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+          run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
