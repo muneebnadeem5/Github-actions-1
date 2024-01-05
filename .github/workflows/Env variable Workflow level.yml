@@ -1,4 +1,4 @@
-name: Variables Job Level
+name: Variables Workflow Level
 on: 
   workflow_dispatch:
 env: 
