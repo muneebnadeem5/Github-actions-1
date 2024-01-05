@@ -32,4 +32,4 @@ jobs:
             CONTAINER_REGISTRY: docker.io
             DOCKER_USERNAME: muneeb99
             IMAGE_NAME: nginx-github-action
-          run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+          run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
