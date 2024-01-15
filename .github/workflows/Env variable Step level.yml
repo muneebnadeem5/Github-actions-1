@@ -15,7 +15,7 @@ jobs:
 
         - name: Docker login
           env:
-            DOCKER_PASSWORD: Admin@9964
+            DOCKER_PASSWORD: Pwd@1122
             DOCKER_USERNAME: muneeb99
           run: echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
           
