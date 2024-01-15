@@ -1,4 +1,4 @@
-name: Variables Workflow Level
+name: Variables Repo Level
 on: 
     workflow_dispatch:
 jobs:
