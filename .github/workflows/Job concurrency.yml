@@ -19,7 +19,7 @@ jobs:
         needs: Docker
         concurrency: 
           group: Production-Deployment
-          cancel-in-progress: true
+          cancel-in-progress: false
 
         runs-on: ubuntu-latest
         steps:
