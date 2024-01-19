@@ -17,6 +17,10 @@ jobs:
 
     Deploy:
         needs: Docker
+        concurrency: 
+          group: Production-Deployment
+          cancel-in-progress: true
+
         runs-on: ubuntu-latest
         steps:
         - name: Docker Run
