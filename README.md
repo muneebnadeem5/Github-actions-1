@@ -20,4 +20,4 @@ Group: is just a name to control concurrency by the name
 ------------------------
 Cancel-in-progress:
 If we pass "True" in the Cancel-in-progress the current running job will stop and new take place".
-If we pass "False" in the Cancel-in-progress the current running job will continue and new job will stop.
+If we pass "False" in the Cancel-in-progress the current running job will continue and new job will PAUSE till the first Workflow.
