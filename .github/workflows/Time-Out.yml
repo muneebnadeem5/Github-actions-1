@@ -1,4 +1,4 @@
-name: Job concurrency
+name: Time Out
 on: 
     workflow_dispatch:
 jobs:

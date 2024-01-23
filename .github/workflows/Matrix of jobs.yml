@@ -1,0 +1,16 @@
+name: Matrix step level
+on: 
+    workflow_dispatch:
+jobs:
+    Deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+          images: [hello-world, alpine] 
+      runs-on: ${{ matrix.os }}
+      steps:
+      - name: Echo Dokcer Details
+        run: docker info
+      - name: Run Image on ${{ matrix.os }}
+        run: docker run ${{ matrix.images }}
+      
