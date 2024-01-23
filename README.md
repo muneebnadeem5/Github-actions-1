@@ -27,3 +27,11 @@ If we pass "False" in the Cancel-in-progress the current running job will contin
 
 we can use timeout-minutes: 1 in job and steps to save the runner time cost w.r.t out expected job/step time.
 Example : Time-Out.yml
+
+1 - fail-fast 
+    Command by default : True this commanad used to continue the other jobs if one of the job goes failed to avoid.
+2 - Max-parallel
+    This command use to run N number of jobs parallel
+3 - Include/Exclude
+    We can 
+
