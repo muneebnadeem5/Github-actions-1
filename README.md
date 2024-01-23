@@ -21,3 +21,9 @@ Group: is just a name to control concurrency by the name
 Cancel-in-progress:
 If we pass "True" in the Cancel-in-progress the current running job will stop and new take place".
 If we pass "False" in the Cancel-in-progress the current running job will continue and new job will PAUSE till the first Workflow.
+
+
+## Time Out (Job & step level)
+
+we can use timeout-minutes: 1 in job and steps to save the runner time cost w.r.t out expected job/step time.
+Example : Time-Out.yml
