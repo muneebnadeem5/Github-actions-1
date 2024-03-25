@@ -1,0 +1,24 @@
+name: Calculate Values
+
+on:
+  workflow_dispatch:
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Step 1 - Take input and add 10
+      id: step1
+      run: |
+        echo "Enter a number:"
+        read x_value
+        x_value=$((x_value + 10))
+        echo "::set-output name=x_value::$x_value"
+
+    - name: Step 2 - Multiply by 2 and print result
+      id: step2
+      run: |
+        x_value=${{ steps.step1.outputs.x_value }}
+        result=$((x_value * 2))
+        echo "Result of multiplying by 2: $result"
